@@ -1,6 +1,8 @@
 package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +12,7 @@ import user.repository.UserRepository;
 
 @RestController
 @RequestMapping("/user")
-public class MainController {
+public class MainController implements CommandLineRunner {
     private static final String[] USERS = { "Tom", "Jerry", "Donald" };
     private static int uniqueId = 0;
 
@@ -63,5 +65,17 @@ public class MainController {
 
         this.userRepository.deleteAll();
         return "Deleted!";
+    }
+
+    @Override
+    public void run(String... args) {
+        userRepository.save(new User());
+
+        System.out.println("Customers found with findAll():");
+        System.out.println("-------------------------------");
+        for (User user : userRepository.findAll()) {
+            System.out.println(user);
+        }
+        System.out.println();
     }
 }
