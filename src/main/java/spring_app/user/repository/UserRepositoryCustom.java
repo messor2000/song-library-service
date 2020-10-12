@@ -1,4 +1,4 @@
-package user.repository;
+package spring_app.user.repository;
 
 public interface UserRepositoryCustom {
 

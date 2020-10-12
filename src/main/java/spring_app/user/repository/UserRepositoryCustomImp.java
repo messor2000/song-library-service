@@ -1,4 +1,4 @@
-package user.repository;
+package spring_app.user.repository;
 
 // Кастомизированый интерфейс со своими методами
 
@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
-import user.User;
+import spring_app.user.User;
 
 
 @Repository

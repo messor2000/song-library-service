@@ -1,10 +1,10 @@
-package mongodb;
+package spring_app.mongodb;
 
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
-import user.User;
+import spring_app.user.User;
 
 import java.util.List;
 
