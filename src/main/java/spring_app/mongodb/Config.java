@@ -1,4 +1,4 @@
-package mongodb;
+package spring_app.mongodb;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;

@@ -1,4 +1,4 @@
-package user.encryption;
+package spring_app.user.encryption;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,18 +1,17 @@
-package controller;
+package spring_app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import user.User;
-import user.encryption.PasswordGenerator;
-import user.repository.UserRepository;
+import spring_app.user.User;
+import spring_app.user.encryption.PasswordGenerator;
+import spring_app.user.repository.UserRepository;
 
 @RestController
 @RequestMapping("/user")
-public class MainController implements CommandLineRunner {
+public class MainController implements CommandLineRunner{
     private static final String[] USERS = { "Tom", "Jerry", "Donald" };
     private static int uniqueId = 0;
 
