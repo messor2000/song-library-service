@@ -17,6 +17,18 @@ public class User {
     @Field(value = "Password")
     private String password;
 
+    public long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public void setId(long id) {
         this.id = id;
     }

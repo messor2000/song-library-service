@@ -2,16 +2,18 @@ package spring_app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import spring_app.user.User;
 import spring_app.user.encryption.PasswordGenerator;
 import spring_app.user.repository.UserRepository;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 @RestController
-@RequestMapping("/user")
-public class MainController implements CommandLineRunner{
+//@Controller
+@RequestMapping("/users")
+public class MainController {
     private static final String[] USERS = { "Tom", "Jerry", "Donald" };
     private static int uniqueId = 0;
 
@@ -40,22 +42,18 @@ public class MainController implements CommandLineRunner{
         return html;
     }
 
-    @ResponseBody
-    @RequestMapping("/testUser")
-    public String testInsert() {
-        User user = new User();
-
-        long id = getUniqueId();
-        int idx = (int) (id % USERS.length);
-        String userName = USERS[idx];
+//    @ResponseBody
+    @PostMapping()
+    public User testInsert(@RequestBody User user) {
+        long id = ThreadLocalRandom.current().nextLong();
 
         user.setId(id);
-        user.setUsername(userName);
-        user.setPassword(passwordGenerator.generate(10));
+//        user.setUsername(userName);
+//        user.setPassword(passwordGenerator.generate(10));
 
-        this.userRepository.insert(user);
+//        this.userRepository.insert(user);
 
-        return "Inserted: " + user;
+        return this.userRepository.insert(user);
     }
 
     @ResponseBody
@@ -66,15 +64,15 @@ public class MainController implements CommandLineRunner{
         return "Deleted!";
     }
 
-    @Override
-    public void run(String... args) {
-        userRepository.save(new User());
-
-        System.out.println("Customers found with findAll():");
-        System.out.println("-------------------------------");
-        for (User user : userRepository.findAll()) {
-            System.out.println(user);
-        }
-        System.out.println();
-    }
+//    @Override
+//    public void run(String... args) {
+//        userRepository.save(new User());
+//
+//        System.out.println("Customers found with findAll():");
+//        System.out.println("-------------------------------");
+//        for (User user : userRepository.findAll()) {
+//            System.out.println(user);
+//        }
+//        System.out.println();
+//    }
 }
